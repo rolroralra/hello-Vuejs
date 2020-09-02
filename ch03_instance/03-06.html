@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>03-06</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="useLC">
+        <p><input v-model="num" type="number"></p>
+        <p>Even / Odd ： {{ answer }}</p>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#useLC",
+            data: {
+                num: 0
+            },
+            // 3. beforeCreate 작성
+
+            beforeCreate: () => {
+                console.log('BeforeCreate!!!', this.num);
+                console.log("BeforeCreate!!!", document.getElementsByTagName('p')[1]);
+            },
+
+            // 1. created 작성
+            created: function() {
+                console.log("Created!!!", this.num);
+                console.log("Created!!!", document.getElementsByTagName('p')[1]);
+            },
+            // 4. mounted 작성
+
+            mounted: () => {
+                console.log("Mounted!!!", this.num);
+                console.log("Mounted!!!", document.getElementsByTagName('p')[1]);
+            },
+
+            beforeUpdate: () => {
+                console.log("beforeUpdated!!!", this.num);
+                console.log("beforeUpdated!!!", document.getElementsByTagName('p')[1]);
+            },
+
+            // 2. updated 작성
+            updated: function() {
+                console.log("updated!!!", this.num);
+                console.log("updated!!!", document.getElementsByTagName('p')[1]);
+            },
+
+            computed: {
+                answer: function() {
+                    if (this.num % 2 != 0) return 'Odd';
+                    return 'Even';
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

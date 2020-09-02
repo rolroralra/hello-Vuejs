@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>03-03</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="useMethods">
+        <p><input v-model="num" type="number"></p>
+        <p>Even / Odd ： {{ answer() }}</p>
+        <p>Even / Odd ： {{ answer() }}</p>
+        <p>Even / Odd ： {{ answer() }}</p>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#useMethods",
+            data: {
+                num: 0
+            },
+            methods: {
+                answer: function() {
+                    console.log('method called!');
+                    if (this.num % 2 != 0) return 'Odd';
+                    return 'Even';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

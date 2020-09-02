@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-07</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="exmaple">
+        <select>
+            <option v-if="selected==0" disabled="disabled" selected>할일을 선택하세요</option>
+            <!-- 2. v-for를 작성-->
+
+            <option v-for="(key, value, idx) in works" v-bind:value="key" @select="selected(idx+1)">{{idx}}.{{value}}</option>
+        </select>
+    </div>
+    <script type="text/javascript">
+        // 1. 데이터 확인
+        var works = {
+            "A": "시장에서 장보기",
+            "B": "달리기 5km ",
+            "C": "여행 계획 세우기",
+            "D": "Vue.js 교육신청",
+            "E": "Opic 등급 올리기"
+        };
+
+        var vm = new Vue({
+            el: "#exmaple",
+            data: {
+                works: works,
+                selected: 0
+            },
+            methods: {
+                selected(value) {
+                    this.selected = value;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

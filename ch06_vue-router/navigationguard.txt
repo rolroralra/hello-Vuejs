@@ -1,0 +1,9 @@
+beforeEnter: (to, from, next) => {
+    console.log('route to product component');
+    next();
+}
+
+router.beforeEach((to, from, next) => {
+    console.log("route path:", from.path, "->", to.path);
+    next();
+})

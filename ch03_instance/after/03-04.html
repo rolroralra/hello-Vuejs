@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>03-04</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <p>원본 메시지: "{{ message }}"</p>
+        <p>역순으로 표시한 메시지(Computed): "{{ reversedMessageByComputed }} "</p>
+        <p>역순으로 표시한 메시지(Computed): "{{ reversedMessageByComputed }} "</p>
+        <p>역순으로 표시한 메시지(Methods): "{{ reversedMessageByMethods() }} "</p>
+        <p>역순으로 표시한 메시지(Methods): "{{ reversedMessageByMethods() }} "</p>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#example',
+            data: {
+                message: '안녕하세요'
+            },
+            computed: {
+                reversedMessageByComputed() {
+                    console.log('computed reversedMessage')
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            methods: {
+                reversedMessageByMethods: function() {
+                    console.log('methods reversedMessage')
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

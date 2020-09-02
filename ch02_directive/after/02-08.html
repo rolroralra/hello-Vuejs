@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>02-08</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = 'todo'>
+        <h3>{{info}} </h3>
+        <input v-model = "text" placeholder = "할 일을 입력하세요" v-on:keyup.enter = "clicked()">  
+        <button v-on:click = "clicked()">클릭이벤트</button>
+        <br>
+        <div v-if = "!items.length" style="color:gray">
+            <h4>- 등록된 계획이 없습니다.</h4>
+        </div>
+        <li v-for = "item in items" >
+            {{item}} <button v-on:click = "remove(item)">X</button>
+        </li>
+    </div>
+    <script>
+    new Vue({
+        el: '#todo',
+        data: {
+            info:'■ 연간 계획 세우기',
+            text:'',
+            items:[]
+        },
+        methods: {
+            clicked(){
+                var value = this.text && this.text.trim()
+                if (!value) {
+                    alert("입력된 값이 없습니다.")
+                    return
+                }
+                this.items.push(this.text)
+                this.text = ''
+            },
+            remove(item){
+                // splice(index, n) : index 위치부터 요소 n개를 제거한 배열을 return
+                var index = this.items.indexOf(item)
+                this.items.splice(index,1)
+            }
+        },
+    })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-04</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="todoList">
+        ■ v-show<br/> 할일 : <input type="text" v-model="newTodoShow" />
+
+        <!-- 1. v-show 작성 -->
+        <img v-show="newTodoShow.length<1" src="./images/error.png " title="할일을 입력해주세요. " style="width:14px; height:14px; vertical-align:middle " />
+        <br/>
+
+
+        <hr/> ■ v-if<br/> 할일 : <input type="text" v-model="newTodoIf" />
+        <!-- 2. v-if 작성 -->
+        <img v-if="newTodoIf.length<1" src="./images/error.png " title="할일을 입력해주세요. " style="width:14px; height:14px; vertical-align:middle " />
+
+    </div>
+
+    <script type="text/javascript ">
+        var vm = new Vue({
+            el: '#todoList',
+            data: {
+                newTodoShow: "",
+                newTodoIf: "",
+            }
+        })
+    </script>
+</body>
+
+</html>

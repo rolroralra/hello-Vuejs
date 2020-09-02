@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-03</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="selectList">
+        <b><h2>SELECT LIST</h2></b>
+        <!-- 1. v-model 작성 -->
+        <select v-model="selectTodo">
+            <option disabled selected  v-if="selectTodo===undefined || selectTodo===''">선택하세요</option>
+            <option>시장에서 장보기<br/>
+            <option>달리기 5km<br/>
+            <option>Vue.js 교육신청<br/>
+            <option>여행 계획 세우기<br/>
+            <option>Opic 등급 올리기<br/>
+        </select>
+        <hr />
+        <!-- 2. selectTodo 표시 -->
+        ■ 선택한 내용 : <span>{{selectTodo}}<span>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            selectTodo: ""
+        };
+
+        var vm = new Vue({
+            el: '#selectList',
+            data: model
+        })
+    </script>
+</body>
+
+</html>

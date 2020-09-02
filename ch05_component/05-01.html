@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>05-01</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<script type="text/javascript">
+</script>
+
+<body>
+    <div id="app">
+        <!-- vue component 작성 -->
+        <helloComponent></helloComponent>
+        <hello-component></hello-component>
+        <hello-component></hello-component>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    // vue component 등록
+
+    // Vue.component('hello-component', {
+    Vue.component('helloComponent', {
+        template: `<div>{{message}}</div>`,
+        // function을 통해서 data 정의해야 정상적으로 작동.
+        data: () => {
+            return {
+                message: 'hello vue'
+            };
+        }
+    })
+
+    // Vue 인스턴스 생성
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

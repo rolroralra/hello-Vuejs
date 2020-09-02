@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>counter html</title>
+</head>
+
+<body>
+    <div id="app" style="width: 100%; text-align: center;">
+        <p>{{ counter }}</p>
+        <button @click="increaseCounter">증가</button>
+        <button @click="decreaseCounter">감소</button>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app", // id가 app인 DOM Element에 바인딩 될 것을 지시
+        data: {
+            counter: 0 // data 객체의 속성은 모두 프록시 처리되어 vue에 의해 관찰, 관리된다
+        },
+        methods: {
+            // this는 vue에 의해 관리되는 vm객체를 가르킨다. 
+            // data와 methods 객체의 속성은 this에서 바로 참조가 가능하다.     
+            increaseCounter() {
+                this.counter++
+            },
+            decreaseCounter() {
+                this.counter--
+            }
+        }
+    })
+</script>
+
+
+</html>

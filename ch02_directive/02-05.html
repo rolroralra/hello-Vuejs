@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-05</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="account">
+        <b><h2>달리기목표: 10km</h2></b> 오늘 달린 거리 : <input type="text" v-model="done" />km
+        <br /> 목표완료여부 :
+
+        <!-- 1. v-if, v-else-if, v-else를 작성-->
+        <span v-if="done>=10">완료하였습니다!</span>
+        <span v-else-if="done>0">아직 완료하지 못했습니다. 조금만 더 달려주세요~</span>
+        <span v-else>입력하여주세요.</span>
+        <br/><br/>
+
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#account',
+            data: {
+                done: 0
+            }
+        })
+    </script>
+</body>
+
+</html>

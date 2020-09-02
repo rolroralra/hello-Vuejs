@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-06</title>
+    <style>
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        #list>thead>tr {
+            color: white;
+            background-color: darkgray;
+        }
+    </style>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="todoList">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>할일</th>
+                    <th>완료여부</th>
+                </tr>
+            </thead>
+            <tbody id="contacts">
+                <!-- 2. v-for를 작성 -->
+                <tr v-for="todo in todos" v-if="todo.todo.indexOf('교육')>-1">
+                    <td>{{todo.no}}</td>
+                    <td>{{todo.todo}}</td>
+                    <td>
+                        <span v-if="todo.done"><img :src="imagePath" :width="reSize" :height="reSize"></span>
+                        <span v-else>X</span>
+                    </td>
+                </tr>
+                <!-- 3. v-for에 v-if 추가 -->
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript ">
+        var model = {
+            // 이미지정보
+            imagePath: "./images/jal.jpg ",
+            reSize: "80",
+
+            // 1. todos 데이터 확인
+            "todos": [{
+                "no": 1,
+                "todo": "시장에서 장보기 ",
+                "done": true
+            }, {
+                "no": 2,
+                "todo": "달리기 5km ",
+                "done": false
+            }, {
+                "no": 3,
+                "todo": "Vue.js 교육신청 ",
+                "done": false
+            }, {
+                "no": 4,
+                "todo": "여행 계획 세우기 ",
+                "done": false
+            }, {
+                "no": 5,
+                "todo": "Opic 등급 올리기 ",
+                "done": false
+            }]
+
+
+        }
+
+        var vm = new Vue({
+            el: "#todoList ",
+            data: model
+        });
+    </script>
+</body>
+
+</html>

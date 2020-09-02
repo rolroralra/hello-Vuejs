@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>04-01</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<script type="text/javascript">
+</script>
+
+<body>
+    <div id="app">
+        <!-- vue component 작성 -->
+        <hello-component></hello-component>
+        <hello-component></hello-component>
+        <hello-component></hello-component>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    // vue component 등록
+    Vue.component('hello-component', {
+            template: `<div>hello world</div>`
+        })
+        // Vue 인스턴스 생성
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-03</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="todoList">
+        <b><h2>TODO LIST</h2></b>
+        <!-- 1. v-model 작성 -->
+        <input type="checkbox" value="1" v-model="doneTodo">시장에서 장보기<br/>
+        <input type="checkbox" value="2" v-model="doneTodo">달리기 5km<br/>
+        <input type="checkbox" value="3" v-model="doneTodo">Vue.js 교육신청<br/>
+        <input type="checkbox" value="4" v-model="doneTodo">여행 계획 세우기<br/>
+        <input type="checkbox" value="5" v-model="doneTodo">Opic 등급 올리기<br/>
+
+        <hr />
+        <!-- 2. doneTodo 목록 표시 -->
+        ■ 완료된 할일 목록 : <span>{{doneTodo}}<span>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            doneTodo: []
+        };
+
+        var vm = new Vue({
+            el: '#todoList',
+            data: model
+        })
+    </script>
+</body>
+
+</html

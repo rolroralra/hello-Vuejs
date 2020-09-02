@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-02</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="todoList">
+
+        ■ 단방향 바인딩<br/>
+        <input type="text" v-bind:value="todo1">
+
+        <br/><br/>
+        <hr/> ■ 양방향 바인딩<br/>
+        <!-- 1. v-model 작성 -->
+        <!-- 2. value 제거 -->
+        <input type="text" v-model="todo2">
+
+        <br/><br/> ▶ 입력한 할일 : <b>{{todo2}}</b>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#todoList',
+            data: {
+                todo1: '장보기',
+                todo2: '휴가계획 세우기'
+            }
+        })
+    </script>
+</body>
+
+</html>

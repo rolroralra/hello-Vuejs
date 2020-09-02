@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>02-01</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="todoList">
+        <!-- 1. v-bind 작성 / input-->
+        <input type="text" :value="message">
+        <br /><br>
+
+        <!-- 2. v-bind 작성 / src -->
+        <!-- 3. v-bind 작성 / width, height -->
+        <!-- 4. v-bind 수성 / v-bind줄이기 -->
+        <img :src="imagePath" :width="reSize" :height="reSize">
+    </div>
+
+    <script type="text/javascript">
+        var model = {
+            message: 'value속성에 바인딩',
+            imagePath: "./images/jal.jpg",
+            reSize: 200
+        };
+
+        var vm = new Vue({
+            el: '#todoList',
+            data: model
+        })
+    </script>
+</body>
+
+</html>
